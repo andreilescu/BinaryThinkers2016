@@ -1,6 +1,8 @@
 package com.binary.thinkers.hash.code.service.impl;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.binary.thinkers.hash.code.model.Drone;
 import com.binary.thinkers.hash.code.model.Product;
@@ -16,8 +18,20 @@ public class WarehouseServiceImpl implements WarehouseService {
 		Integer weight = product.getWeight();
 
 		if (maxPayload >= weight) {
-
+			
 			maxPayload -= weight;
+			Map<Integer, Integer> orders = drone.getProducts();
+			
+			Integer productId = product.getId();
+			if(orders.isEmpty()) {
+				orders = new HashMap<Integer, Integer>();
+				orders.put(productId, 1);
+				
+			} else {
+				Integer count = orders.get(productId);
+				count++;
+				orders.put(productId, count);
+			}
 		}
 	}
 
