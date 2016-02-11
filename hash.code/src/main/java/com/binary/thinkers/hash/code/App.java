@@ -18,6 +18,7 @@ public class App
         Integer rowNumbers = fileParser.getRowNumber(fileName);
         Integer columnNumbers = fileParser.getColumnNumber(fileName);
         
+        
         System.out.println("row:" + rowNumbers);
         System.out.println("col: " + columnNumbers);
     }
