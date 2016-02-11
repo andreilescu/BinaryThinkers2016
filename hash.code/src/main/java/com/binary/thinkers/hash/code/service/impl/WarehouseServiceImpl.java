@@ -23,9 +23,20 @@ public class WarehouseServiceImpl implements WarehouseService {
 
 	public Warehouse getClosestWarehouse(Drone drone, List<Warehouse> warehouses) {
 		
-		// iterate array
+		int auxDistance;
+		Warehouse minWarehouse = warehouses.get(0);
+		int minDistance = (int)Math.sqrt(Math.pow(Math.abs(drone.getCoordinate().x - drone.getCoordinate().y), 2) + Math.pow(Math.abs(warehouses.get(0).getCoordinates().x - warehouses.get(0).getCoordinates().y), 2));
+		for (int i=1;i<warehouses.size();i++) {
+			
+			auxDistance = (int)Math.sqrt(Math.pow(Math.abs(drone.getCoordinate().x - drone.getCoordinate().y), 2) + Math.pow(Math.abs(warehouses.get(i).getCoordinates().x - warehouses.get(i).getCoordinates().y), 2));
+			if (auxDistance < minDistance) {
+				
+				auxDistance = minDistance;
+				minWarehouse = warehouses.get(i);
+			}
+		}
 		
-		return null;
+		return minWarehouse;
 	}
 
 }
