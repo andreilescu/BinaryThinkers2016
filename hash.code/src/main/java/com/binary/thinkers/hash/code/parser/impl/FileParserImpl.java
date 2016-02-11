@@ -23,8 +23,7 @@ public class FileParserImpl implements FileParser{
 		try {
 			fis = new FileInputStream(file);
 			InputStreamReader isr = new InputStreamReader(fis);
-			bufferedReader = new BufferedReader(isr);			
-			System.out.println(bufferedReader.readLine());
+			bufferedReader = new BufferedReader(isr);		
 			
 			
 			while ((line = bufferedReader.readLine()) != null) {
@@ -66,16 +65,11 @@ public class FileParserImpl implements FileParser{
 		try {
 			fis = new FileInputStream(file);
 			InputStreamReader isr = new InputStreamReader(fis);
-			bufferedReader = new BufferedReader(isr);			
-			System.out.println(bufferedReader.readLine());
+			bufferedReader = new BufferedReader(isr);		
 			
-			
-			while ((line = bufferedReader.readLine()) != null) {
-				
-				String arraylist[] = line.split(" ");
-				row=Integer.parseInt(arraylist[0]);
-				
-			}
+			line = bufferedReader.readLine();
+			String arraylist[] = line.split(" ");
+			row=Integer.parseInt(arraylist[0]);
 
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -96,18 +90,16 @@ public class FileParserImpl implements FileParser{
 		FileInputStream fis = null;
 		BufferedReader bufferedReader = null;
 		String line;
+		Integer column = 0;
 		try {
 			fis = new FileInputStream(file);
 			InputStreamReader isr = new InputStreamReader(fis);
 			bufferedReader = new BufferedReader(isr);			
-			System.out.println(bufferedReader.readLine());
 			
-			
-			while ((line = bufferedReader.readLine()) != null) {
-				
-				// convert to char and display it
-				System.out.print(line);
-			}
+			line = bufferedReader.readLine();
+			String arraylist[] = line.split(" ");
+			column=Integer.parseInt(arraylist[1]);
+
 
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -120,7 +112,7 @@ public class FileParserImpl implements FileParser{
 			}
 		}
 		
-		return null;
+		return column;
 	}
 
 	public Integer getDroneNumber(String fileName) {
