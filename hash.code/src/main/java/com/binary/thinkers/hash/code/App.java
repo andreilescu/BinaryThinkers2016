@@ -1,14 +1,10 @@
 package com.binary.thinkers.hash.code;
 
-/**
- * Hello world!
- *
- */
 public class App 
 {
     public static void main( String[] args )
     {
         System.out.println( "Hello World!" );
-        System.out.println("Hey");
+        
     }
 }
